@@ -3,274 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مشكاة — فوائد تُنير القلب</title>
+<title>الكناشة — فوائد تُنير القلب</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-<style>
-  :root {
-    --gold: #C8993A;
-    --gold-light: #E2B85A;
-    --gold-dim: #C8993A33;
-    --bg: #111110;
-    --bg2: #1A1A18;
-    --bg3: #222220;
-    --text: #E8DCC8;
-    --text-dim: #A09880;
-    --border: #C8993A22;
-    --radius: 8px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Amiri', serif;
-    direction: rtl;
-    min-height: 100vh;
-    line-height: 1.7;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-  .geo-pattern {
-    position: absolute;
-    inset: 0;
-    background-image:
-      repeating-linear-gradient(45deg, var(--border) 0, var(--border) 1px, transparent 0, transparent 50%),
-      repeating-linear-gradient(-45deg, var(--border) 0, var(--border) 1px, transparent 0, transparent 50%);
-    background-size: 30px 30px;
-    opacity: 0.4;
-    pointer-events: none;
-  }
-  .hero {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    padding: 5rem 2rem 4rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero .geo-pattern { opacity: 0.25; }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 160px;
-    background: radial-gradient(ellipse, #C8993A18 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-inner { position: relative; z-index: 1; }
-  .badge {
-    display: inline-block;
-    border: 0.5px solid var(--gold);
-    color: var(--gold);
-    font-size: 12px;
-    padding: 4px 18px;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
-    letter-spacing: 3px;
-    font-family: sans-serif;
-    animation: fadeDown 0.8s ease both;
-  }
-  .hero h1 {
-    font-size: clamp(52px, 12vw, 80px);
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1.1;
-    margin-bottom: 0.25rem;
-    text-shadow: 0 0 60px #C8993A44;
-    animation: fadeDown 0.9s ease both;
-    animation-delay: 0.1s;
-  }
-  .hero .tagline {
-    font-size: clamp(16px, 4vw, 20px);
-    color: var(--text-dim);
-    margin-bottom: 2rem;
-    animation: fadeDown 1s ease both;
-    animation-delay: 0.2s;
-  }
-  .ornament {
-    color: var(--gold);
-    letter-spacing: 10px;
-    font-size: 18px;
-    margin: 1rem 0;
-    display: block;
-    opacity: 0.7;
-    animation: fadeDown 1s ease both;
-    animation-delay: 0.3s;
-  }
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--gold);
-    color: #111110;
-    padding: 13px 32px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 700;
-    text-decoration: none;
-    font-family: sans-serif;
-    transition: background 0.2s, transform 0.15s;
-    animation: fadeDown 1s ease both;
-    animation-delay: 0.4s;
-  }
-  .cta:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .cta i { font-size: 20px; }
-  .ayah-wrap {
-    padding: 2.5rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .ayah-box {
-    max-width: 680px;
-    margin: 0 auto;
-    background: var(--bg2);
-    border: 0.5px solid var(--gold);
-    border-radius: var(--radius);
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .ayah-box::before {
-    content: '\275D';
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    font-size: 80px;
-    color: var(--gold);
-    opacity: 0.07;
-    font-family: serif;
-    line-height: 1;
-  }
-  .ayah-text {
-    font-size: clamp(18px, 4vw, 24px);
-    color: var(--gold);
-    line-height: 2;
-    margin-bottom: 0.75rem;
-  }
-  .ayah-ref {
-    font-size: 13px;
-    color: var(--text-dim);
-    font-family: sans-serif;
-    letter-spacing: 1px;
-  }
-  section {
-    padding: 3rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    max-width: 760px;
-    margin: 0 auto;
-  }
-  .section-header { text-align: center; margin-bottom: 2rem; }
-  .section-header h2 { font-size: 24px; color: var(--text); }
-  .section-header .ornament { margin-bottom: 0.5rem; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-  .card {
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.25rem 1rem;
-    text-align: center;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .card:hover { border-color: var(--gold); transform: translateY(-2px); }
-  .card-icon {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: #C8993A12; border: 0.5px solid #C8993A55;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 0.75rem;
-  }
-  .card-icon i { font-size: 22px; color: var(--gold); }
-  .card h3 { font-size: 15px; color: var(--text); margin-bottom: 4px; }
-  .card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; font-family: sans-serif; }
-  .pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: var(--bg2); border: 0.5px solid var(--border);
-    border-radius: 20px; padding: 7px 16px;
-    font-size: 13px; color: var(--text); font-family: sans-serif;
-    transition: border-color 0.2s;
-  }
-  .pill:hover { border-color: var(--gold); }
-  .pill i { font-size: 15px; color: var(--gold); }
-  .sub-block {
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    background: var(--bg2);
-    transition: border-color 0.2s;
-  }
-  .sub-block:hover { border-color: #C8993A55; }
-  .sub-block:last-child { margin-bottom: 0; }
-  .sub-block-title {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 1.25rem; padding-bottom: 1rem;
-    border-bottom: 0.5px solid var(--border);
-  }
-  .sub-block-title i { font-size: 22px; color: var(--gold); }
-  .sub-block-title span { font-size: 18px; color: var(--text); }
-  .steps { display: flex; flex-direction: column; gap: 1rem; }
-  .step { display: flex; align-items: flex-start; gap: 14px; }
-  .step-num {
-    min-width: 32px; height: 32px; border-radius: 50%;
-    background: #C8993A12; border: 0.5px solid #C8993A55;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px; color: var(--gold); flex-shrink: 0;
-    font-family: sans-serif;
-  }
-  .step-body h3 { font-size: 15px; color: var(--text); margin-bottom: 3px; }
-  .step-body p { font-size: 13px; color: var(--text-dim); line-height: 1.6; font-family: sans-serif; }
-  .step-body a { color: var(--gold); }
-  .mono {
-    font-family: monospace; font-size: 12px;
-    background: var(--bg3); padding: 2px 6px;
-    border-radius: 4px; color: var(--text-dim);
-  }
-  footer {
-    background: var(--bg2);
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 3rem 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  footer .geo-pattern { opacity: 0.15; }
-  footer .inner { position: relative; z-index: 1; }
-  footer .logo { font-size: 42px; color: var(--gold); text-shadow: 0 0 40px #C8993A44; margin-bottom: 0.25rem; }
-  footer .sub-text { font-size: 14px; color: var(--text-dim); margin-bottom: 1.5rem; font-family: sans-serif; }
-  footer .handle { font-size: 13px; color: var(--text-dim); margin-top: 1.25rem; font-family: sans-serif; }
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-14px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @media (max-width: 480px) {
-    .hero { padding: 3.5rem 1.25rem 3rem; }
-    section { padding: 2rem 1.25rem; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="hero">
   <div class="geo-pattern"></div>
   <div class="hero-inner">
-    <span class="badge">بوت تيليغرام (تجريبي)</span>
-    <h1>مشكاة</h1>
+    <nav class="main-nav">
+      <a href="index.html">الصفحة الرئيسية</a>
+      <a href="archive.html">الأرشيف</a>
+    </nav>
+
+    <span class="badge">بوت تيليغرام</span>
+    <h1>الكناشة</h1>
     <p class="tagline">فوائد تُنير القلب وتُحيي الروح</p>
     <span class="ornament">&#10022; &nbsp; &#10022; &nbsp; &#10022;</span>
-    <a class="cta" href="https://t.me/mshkanjmbot" target="_blank">
-      <i class="ti ti-brand-telegram"></i>
-      اشترك الآن
-    </a>
+    <div class="cta-group">
+      <a class="cta" href="https://t.me/mshkanjmbot?start" target="_blank">
+        <i class="ti ti-brand-telegram"></i>
+        اشترك الآن
+      </a>
+      <a class="cta" href="archive.html">
+        <i class="ti ti-archive"></i>
+        الأرشيف (جديد)
+      </a>
+    </div>
   </div>
 </div>
 
@@ -284,7 +45,7 @@
 <section>
   <div class="section-header">
     <span class="ornament">&#10022;</span>
-    <h2>ماذا ستجد في مشكاة؟</h2>
+    <h2>ماذا ستجد في الكناشة؟</h2>
   </div>
   <div class="cards">
     <div class="card">
@@ -300,7 +61,7 @@
     <div class="card">
       <div class="card-icon"><i class="ti ti-heart"></i></div>
       <h3>فوائد علمية</h3>
-      <p>لطائف وفوائد في العقيدة والفقه والتزكية من مصادر موثوقة.</p>
+      <p>لطائف وفوائد في العقيدة والسنة والفقه والتزكية.</p>
     </div>
     <div class="card">
       <div class="card-icon"><i class="ti ti-quote"></i></div>
@@ -316,14 +77,11 @@
     <h2>المحتوى الذي ينتظرك</h2>
   </div>
   <div class="pills">
-    <span class="pill"><i class="ti ti-moon"></i> أذكار وأدعية</span>
-    <span class="pill"><i class="ti ti-book-2"></i> شرح الأحاديث</span>
-    <span class="pill"><i class="ti ti-sun"></i> تدبر الآيات</span>
-    <span class="pill"><i class="ti ti-feather"></i> سير الصالحين</span>
-    <span class="pill"><i class="ti ti-sparkles"></i> فقه العبادات</span>
-    <span class="pill"><i class="ti ti-message-circle"></i> مسائل العقيدة</span>
-    <span class="pill"><i class="ti ti-leaf"></i> تزكية النفس</span>
-    <span class="pill"><i class="ti ti-bulb"></i> فوائد متنوعة</span>
+    <span class="pill"><i class="ti ti-book"></i> اقتباسات من علماء السنة</span>
+    <span class="pill"><i class="ti ti-heart"></i> منتقى من حياة السلف</span>
+    <span class="pill"><i class="ti ti-sun"></i> توجيهات وبيانات شرعية</span>
+    <span class="pill"><i class="ti ti-leaf"></i> نصائح روحية وتزكوية</span>
+    <span class="pill"><i class="ti ti-moon"></i> أمثلة على همم السلف</span>
   </div>
 </section>
 
@@ -343,21 +101,21 @@
         <div class="step-num">١</div>
         <div class="step-body">
           <h3>افتح البوت</h3>
-          <p>اضغط على <a href="https://t.me/mshkanjmbot" target="_blank">t.me/mshkanjmbot</a> أو ابحث عن <span class="mono">@mshkanjmbot</span> في تيليغرام.</p>
+          <p>اضغط على <a href="https://t.me/mshkanjmbot?start" target="_blank">t.me/mshkanjmbot?start</a> أو ابحث عن <span class="mono">@mshkanjmbot</span> في تيليغرام.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">٢</div>
         <div class="step-body">
           <h3>أرسل له أي رسالة</h3>
-          <p>اكتب "السلام عليكم" أو أي كلمة — سيُسجّلك البوت تلقائياً ويُرحّب بك.</p>
+          <p>ابدأ المحادثة بأمر /start أو أي كلمة وسيتم الاستراك.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">٣</div>
         <div class="step-body">
           <h3>استقبل الفوائد</h3>
-          <p>ستصلك الفوائد مباشرةً في محادثتك الخاصة كلما نُشر محتوى جديد.</p>
+          <p>ستصلك الاقتباسات مباشرةً في محادثتك الخاصة كلما نُشر محتوى جديد.</p>
         </div>
       </div>
     </div>
@@ -416,8 +174,8 @@
       <div class="step">
         <div class="step-num">٣</div>
         <div class="step-body">
-          <h3>أرسل /register في القناة</h3>
-          <p>أرسل الأمر <span class="mono">/register</span> داخل القناة لتسجيلها وتبدأ في استقبال الفوائد.</p>
+          <h3>يبدأ البث تلقائياً</h3>
+          <p>سيُرسل البوت رسالة ترحيب وتبدأ القناة في استقبال الاقتباسات فوراً.</p>
         </div>
       </div>
     </div>
@@ -428,9 +186,9 @@
   <div class="geo-pattern"></div>
   <div class="inner">
     <span class="ornament" style="margin-bottom:1rem;">&#10022; &nbsp; &#10022; &nbsp; &#10022;</span>
-    <div class="logo">مشكاة</div>
+    <div class="logo">الكناشة</div>
     <p class="sub-text">فوائد تُنير القلب وتُحيي الروح</p>
-    <a class="cta" href="https://t.me/mshkanjmbot" target="_blank">
+    <a class="cta" href="https://t.me/mshkanjmbot?start" target="_blank">
       <i class="ti ti-brand-telegram"></i>
       انضم الآن
     </a>
