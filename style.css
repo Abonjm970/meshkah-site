@@ -81,3 +81,10 @@ footer .handle { font-size: 13px; color: var(--text-dim); margin-top: 1.25rem; f
 .quote-box { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; overflow: hidden; }
 .quote-text { font-size: clamp(18px, 4vw, 24px); color: var(--gold); line-height: 2; margin-bottom: 0.75rem; }
 .quote-source { font-size: 13px; color: var(--text-dim); font-family: sans-serif; letter-spacing: 1px; text-align: right; border-top: 1px solid var(--border); padding-top: 0.5rem; margin-top: 0.75rem; }
+
+/* Notes section */
+.notes-container { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+.note-box { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; overflow: hidden; transition: border-color 0.2s; }
+.note-box:hover { border-color: var(--gold); }
+.note-title { font-size: 16px; color: var(--gold); font-family: sans-serif; margin-bottom: 0.75rem; }
+.note-text { font-size: clamp(16px, 4vw, 20px); color: var(--text); line-height: 2; }

@@ -35,6 +35,16 @@
   </div>
 </div>
 
+<section>
+  <div class="section-header">
+    <span class="ornament">&#10022;</span>
+    <h2>ملاحظات</h2>
+  </div>
+  <div class="notes-container">
+    <!-- تُملأ بجافاسكريبت من notes.json -->
+  </div>
+</section>
+
 <div class="ayah-wrap">
   <div class="ayah-box">
     <div class="ayah-text">﴿ ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ ﴾</div>
@@ -196,5 +206,27 @@
   </div>
 </footer>
 
+  <script>
+    async function loadNotes() {
+      try {
+        const resp = await fetch('notes.json');
+        const data = await resp.json();
+        const container = document.querySelector('.notes-container');
+        container.innerHTML = '';
+        data.forEach(item => {
+          const box = document.createElement('div');
+          box.className = 'note-box';
+          box.innerHTML = `
+            <div class="note-title">${item.title}</div>
+            <div class="note-text">${item.note}</div>
+          `;
+          container.appendChild(box);
+        });
+      } catch (e) {
+        console.error('خطأ في تحميل الملاحظات', e);
+      }
+    }
+    loadNotes();
+  </script>
 </body>
 </html>
